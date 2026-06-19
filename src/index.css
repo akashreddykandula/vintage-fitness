@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0F0F0F;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0F0F0F;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #F5C518;
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-gold text-gym-black font-bold font-poppins
+           px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-1
+           hover:shadow-[0_12px_40px_rgba(245,197,24,0.4)] hover:bg-gold-dark;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border border-white/30 text-white font-semibold
+           font-poppins px-8 py-4 rounded-full transition-all duration-300
+           hover:border-gold hover:text-gold;
+  }
+
+  .section-label {
+    @apply text-gold text-xs tracking-[3px] font-semibold uppercase mb-3;
+  }
+
+  .section-title {
+    @apply font-poppins font-black text-4xl md:text-5xl leading-tight;
+  }
+
+  .card-glass {
+    @apply bg-gym-dark border border-white/[0.06] rounded-2xl transition-all duration-300;
+  }
+
+  .card-glass:hover {
+    @apply border-gold/30 -translate-y-2;
+  }
+}
+
+/* Hero grid overlay */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(245, 197, 24, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 197, 24, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* WhatsApp FAB pulse */
+@keyframes wa-pulse {
+  0%, 100% { box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 8px 48px rgba(37, 211, 102, 0.6), 0 0 0 10px rgba(37, 211, 102, 0.06); }
+}
+.wa-fab-pulse {
+  animation: wa-pulse 2.5s infinite;
+}
+
+/* Before/after divider */
+.ba-divider {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #F5C518;
+  z-index: 2;
+}
+
+/* Swiper custom dots */
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.3) !important;
+  opacity: 1 !important;
+}
+.swiper-pagination-bullet-active {
+  background: #F5C518 !important;
+  width: 24px !important;
+  border-radius: 4px !important;
+}
+
+/* Gallery lightbox overlay */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+}
